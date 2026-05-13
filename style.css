@@ -69,3 +69,89 @@
 img{
     margin-bottom : 10px;
 }
+
+.video-category {
+  margin: 32px 0;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.category-header h1 {
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+}
+
+.category-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.slider-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.4rem;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s ease;
+}
+
+.slider-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.video-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.video-row::-webkit-scrollbar {
+  display: none;
+}
+
+.video-row {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.video-card {
+  min-width: 300px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fffefe;
+}
+
+.video-card iframe {
+  display: block;
+  width: 100%;
+  height: 200px;
+}
+
+.video-card .info {
+  padding: 12px 10px;
+}
+
+.video-card h4 {
+  font-size: 1rem;
+  color: #000000;
+}
+
+body {
+  background: url("photo_2026-05-13_22-36-48.jpg") center/cover no-repeat fixed;
+  color: #fff;
+}
