@@ -1,79 +1,126 @@
-let videoData = [];
-async function loadVideoData() {
+let data = [];
+
+const charGrid = document.getElementById('charGrid');
+const vidGrid  = document.getElementById('vidGrid');
+let vidOffset = 0;
+let activeCategory = '';
+let selectedVideoId = '';
+let categories = [];
+
+async function loadData() {
   try {
     const response = await fetch('data.json');
     if (!response.ok) {
       throw new Error(`Failed to load data.json: ${response.status}`);
     }
-
-    videoData = await response.json();
-    displayVideosByCategory();
+    data = await response.json();
+    buildCategories();
+    activeCategory = categories[0]?.category || '';
+    selectedVideoId = categories[0]?.videos[0]?.id || '';
+    renderCards();
   } catch (error) {
-    console.error(error);
+    console.error('Error loading data:', error);
   }
 }
 
-function displayVideosByCategory() {
-  const container = document.querySelector('.video-grid');
-  if (!container) return;
-
-  container.innerHTML = "";
-
-  const videosByCategory = videoData.reduce((groups, video) => {
-    if (!groups[video.category]) {
-      groups[video.category] = [];
+function buildCategories() {
+  const map = {};
+  categories = [];
+  data.forEach(item => {
+    if (!map[item.category]) {
+      map[item.category] = {
+        category: item.category,
+        cardImage: item.cardImage,
+        hoverCardImage: item.hoverCardImage,
+        videos: []
+      };
+      categories.push(map[item.category]);
     }
-    groups[video.category].push(video);
-    return groups;
-  }, {});
-
-  Object.keys(videosByCategory).forEach(category => {
-    const sectionHTML = `
-      <section class="video-category">
-        <div class="category-header">
-          <h1>${category}</h1>
-          <div class="category-controls">
-            <button class="slider-btn prev" aria-label="Previous ${category}">‹</button>
-            <button class="slider-btn next" aria-label="Next ${category}">›</button>
-          </div>
-        </div>
-        <div class="video-row">
-          ${videosByCategory[category].map(video => `
-            <div class="video-card">
-              <iframe width="300" height="200"
-                src="https://www.youtube.com/embed/${video.videoId}"
-                title="${video.title}"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen>
-              </iframe>
-
-              <div class="info">
-                <h4>${video.title}</h4>
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      </section>
-    `;
-
-    container.innerHTML += sectionHTML;
-  });
-
-  document.querySelectorAll('.video-category').forEach(section => {
-    const row = section.querySelector('.video-row');
-    const prev = section.querySelector('.slider-btn.prev');
-    const next = section.querySelector('.slider-btn.next');
-    const scrollAmount = 320;
-
-    prev.addEventListener('click', () => {
-      row.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    });
-
-    next.addEventListener('click', () => {
-      row.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    });
+    map[item.category].videos.push(item);
   });
 }
-loadVideoData();
+
+function renderCards() {
+  renderCharacterCards();
+  renderVideoCards();
+}
+
+function renderCharacterCards() {
+  charGrid.innerHTML = '';
+  categories.forEach(category => {
+    const card = document.createElement('div');
+    card.className = 'char-card';
+    card.dataset.category = category.category;
+    if (category.category === activeCategory) card.classList.add('active');
+    card.innerHTML = `
+      <div class="card-thumb">
+        <img src="${category.cardImage}" class="card-main" alt="${category.category}">
+        <img src="${category.hoverCardImage || category.cardImage}" class="card-hover" alt="${category.category} hover">
+      </div>
+      <div class="char-name">${category.category}</div>
+      <div class="char-series">${category.videos.length} videos</div>
+    `;
+    card.addEventListener('click', () => selectCategory(category.category));
+    charGrid.appendChild(card);
+  });
+}
+
+function renderVideoCards() {
+  vidGrid.innerHTML = '';
+  const visibleVideos = data.filter(item => item.category === activeCategory);
+  visibleVideos.forEach(item => {
+    const card = document.createElement('div');
+    const isActive = item.id === selectedVideoId;
+    card.className = 'video-card';
+    card.dataset.id = item.id;
+    if (isActive) card.classList.add('active');
+    const src = isActive
+      ? `https://www.youtube.com/embed/${item.videoId}?autoplay=1&controls=1&modestbranding=1&rel=0`
+      : `https://www.youtube.com/embed/${item.videoId}?mute=1&controls=0&loop=1&playlist=${item.videoId}&modestbranding=1&rel=0`;
+    card.innerHTML = `
+      <div class="vc-thumb">
+        <iframe src="${src}"
+                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="vc-overlay"></div>
+      </div>
+      <div class="vc-info">
+        <div class="vc-title">${item.title}</div>
+        <div class="vc-cat">${item.category}</div>
+      </div>
+    `;
+    card.addEventListener('click', () => selectVideo(item.id));
+    vidGrid.appendChild(card);
+  });
+}
+
+function selectCategory(category) {
+  activeCategory = category;
+  selectedVideoId = data.find(item => item.category === category)?.id || '';
+  renderCards();
+  vidOffset = 0;
+  applyOffset(vidGrid, vidOffset);
+}
+
+function selectVideo(id) {
+  selectedVideoId = id;
+  renderVideoCards();
+}
+
+loadData();
+
+// ── OFFSET HELPER ──
+function applyOffset(grid, offset) {
+  const max = grid.children.length - 1;
+  offset = Math.max(0, Math.min(offset, max));
+  grid.style.transform = `translateX(calc(-${offset} * (25% + 20px)))`;
+}
+
+// ── ARROW CONTROLS ──
+document.getElementById('vidNext').addEventListener('click', () => {
+  vidOffset = Math.min(vidOffset + 1, vidGrid.children.length - 1);
+  applyOffset(vidGrid, vidOffset);
+});
+document.getElementById('vidPrev').addEventListener('click', () => {
+  vidOffset = Math.max(vidOffset - 1, 0);
+  applyOffset(vidGrid, vidOffset);
+});
