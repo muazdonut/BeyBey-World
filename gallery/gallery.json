@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Dragoon Galaxy Turbo",
+    "series": "og",
+    "tag": "OG",
+    "tagClass": "tag-cyan",
+    "episode": 12,
+    "image": "../picture/Dragoon_Galaxy_Turbo.png",
+    "alt": "Dragoon Galaxy Turbo",
+    "description": "Takara's iconic Dragoon seen in the final showdown of the V-Force arc.",
+    "link": "https://animex.one/watch/beyblade-288-episode-12"
+  },
+  {
+    "id": 2,
+    "name": "Storm Pegasus 105RF",
+    "series": "metal",
+    "tag": "Metal",
+    "tagClass": "tag-red",
+    "episode": 45,
+    "image": "../picture/Storm_Pegasus_105RF.png",
+    "alt": "Storm Pegasus 105RF",
+    "description": "Ginga's legendary Pegasus unleashing Starblast Attack against Ryuga.",
+    "link": "https://animex.one/watch/beyblade-288-episode-45"
+  },
+  {
+    "id": 3,
+    "name": "Victory Valkyrie.B.V",
+    "series": "burst",
+    "tag": "Burst",
+    "tagClass": "tag-purple",
+    "episode": 88,
+    "image": "../picture/Victory_Valkyrie_BV.png",
+    "alt": "Victory Valkyrie.B.V",
+    "description": "Valt's Valkyrie achieving its first Burst finish against Lui's Longinus.",
+    "link": "https://animex.one/watch/beyblade-288-episode-88"
+  },
+  {
+    "id": 4,
+    "name": "Dran Sword 3-60F",
+    "series": "x",
+    "tag": "X",
+    "tagClass": "tag-gold",
+    "episode": 3,
+    "image": "../picture/Dran_Sword_3-60F.png",
+    "alt": "Dran Sword 3-60F",
+    "description": "The first X-rail attack witnessed in the new Beyblade X anime premiere.",
+    "link": "https://animex.one/watch/beyblade-288-episode-3"
+  },
+  {
+    "id": 5,
+    "name": "Driger Slash",
+    "series": "og",
+    "tag": "OG",
+    "tagClass": "tag-cyan",
+    "episode": 1,
+    "image": "../picture/Driger_Slash.png",
+    "alt": "Driger Slash",
+    "description": "Ray's Driger in its first appearance, launching from the hilltop in Episode 1.",
+    "link": "https://animex.one/watch/beyblade-288-episode-1"
+  },
+  {
+    "id": 6,
+    "name": "Death Quetzalcoatl 125SF",
+    "series": "metal",
+    "tag": "Metal",
+    "tagClass": "tag-red",
+    "episode": 51,
+    "image": "../picture/Death_Quetzalcoatl_125SF.png",
+    "alt": "Death Quetzalcoatl 125SF",
+    "description": "Tsubasa's fierce Quetzalcoatl battling through the World Championships arc.",
+    "link": "https://animex.one/watch/beyblade-288-episode-51"
+  },
+  {
+    "id": 7,
+    "name": "Spriggan Requiem 0Zeta",
+    "series": "burst",
+    "tag": "Burst",
+    "tagClass": "tag-purple",
+    "episode": 27,
+    "image": "../picture/Spriggan_Requiem_0Zeta.png",
+    "alt": "Spriggan Requiem 0Zeta",
+    "description": "Free's dual-spin Spriggan dominating the God layer tournament finals.",
+    "link": "https://animex.one/watch/beyblade-288-episode-27"
+  },
+  {
+    "id": 8,
+    "name": "Wizard Arrow 4-80B",
+    "series": "x",
+    "tag": "X",
+    "tagClass": "tag-gold",
+    "episode": 9,
+    "image": "../picture/Wizard_Arrow_4-80B.png",
+    "alt": "Wizard Arrow 4-80B",
+    "description": "Multi's precision stamina build holding the X-rail with calculated defense.",
+    "link": "https://animex.one/watch/beyblade-288-episode-9"
+  }
+]

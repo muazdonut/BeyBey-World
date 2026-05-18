@@ -1,0 +1,33 @@
+[
+  {
+    "name":"Dransword",
+    "atk":8,
+    "def":5,
+    "stm":7,
+    "image":"../imagesbattle/defaultbey1.png"
+  },
+
+  {
+    "name":"Phoenix",
+    "atk":6,
+    "def":8,
+    "stm":5,
+    "image":"../imagesbattle/defaultbey2.png"
+  },
+
+  {
+    "name":"Pegasus",
+    "atk":9,
+    "def":4,
+    "stm":6,
+    "image":"../imagesbattle/defaultbey3.png"
+  },
+
+  {
+    "name":"Wizard",
+    "atk":5,
+    "def":9,
+    "stm":7,
+    "image":"../imagesbattle/Wizard.png"
+  }
+]

@@ -1,0 +1,303 @@
+/* ================================================
+   BEYBEY WORLD — Gallery Styles
+   ================================================ */
+
+body { margin: 0; }
+
+/* ---- GLOBAL RESET scoped to .beybey-gallery ---- */
+.beybey-gallery,
+.beybey-gallery *,
+.beybey-gallery *::before,
+.beybey-gallery *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---- MAIN CONTAINER with CSS custom properties (design tokens) ---- */
+.beybey-gallery {
+  --bg: #080a0f;
+  --bg-surface: #10131a;
+  --bg-card: #161a24;
+  --bg-card-hover: #1c2130;
+  --border: #2a2f3d;
+  --cyan: #00e5ff;
+  --red: #ff1744;
+  --gold: #ffd740;
+  --purple: #b388ff;
+  --text: #eef0f6;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Mono', monospace;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 16px;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ---- FULL-SCREEN BACKGROUND IMAGE ---- */
+.beybey-gallery .page-image-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.beybey-gallery .page-image-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- HEADING TYPOGRAPHY ---- */
+.beybey-gallery h1,
+.beybey-gallery h2,
+.beybey-gallery h3,
+.beybey-gallery h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 4px;
+  line-height: 1.1;
+}
+.beybey-gallery h1 { font-size: 72px; letter-spacing: 6px; }
+.beybey-gallery h2 { font-size: 40px; }
+.beybey-gallery h3 { font-size: 28px; }
+.beybey-gallery h4 { font-size: 21px; }
+.beybey-gallery p  { font-size: 18px; }
+
+/* ---- LAYOUT CONTAINER ---- */
+.beybey-gallery .container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 48px;
+  position: relative;
+  z-index: 1;
+}
+.beybey-gallery .section {
+  padding: 32px 0 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ======================== NAVIGATION ======================== */
+
+/* ======================== HERO SECTION ======================== */
+
+.beybey-gallery .hero {
+  padding: 112px 0 32px;
+  position: relative;
+  z-index: 1;
+}
+.beybey-gallery .hero h1 {
+  margin-bottom: 12px;
+}
+.beybey-gallery .accent { color: var(--cyan); }
+.beybey-gallery .hero p { font-size: 16px; max-width: 600px; }
+
+/* ======================== FILTER BUTTONS ======================== */
+
+.beybey-gallery .filter-btn {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 9px 22px;
+  border-radius: 100px;
+  border: 1px solid #ffffff99;
+  margin-bottom: 32px;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.beybey-gallery .filter-btn:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+.beybey-gallery .filter-btn.active {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  background: #00e5ff14;
+  box-shadow: 0 0 16px #00e5ff33;
+}
+
+/* ======================== CARD LINKS ======================== */
+
+.beybey-gallery .card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.beybey-gallery .card-link.filtered-in {
+  animation: beybey_filterIn 0.4s ease forwards;
+}
+@keyframes beybey_filterIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.beybey-gallery .card-link.hide {
+  display: none;
+}
+
+/* ======================== GALLERY GRID ======================== */
+
+.beybey-gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 24px;
+  row-gap: 112px;
+}
+
+/* ======================== INDIVIDUAL CARDS ======================== */
+
+.beybey-gallery .card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+.beybey-gallery .card:hover {
+  background: var(--bg-card-hover);
+  border-color: #00e5ff;
+  transform: translateY(-6px);
+  box-shadow: 0 4px 24px #00e5ff;
+}
+
+.beybey-gallery .card-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-surface);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.beybey-gallery .card-image img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Episode number badge */
+.beybey-gallery .episode-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text);
+  background: #080a0fcc;
+  backdrop-filter: blur(8px);
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid #ffffff14;
+  transition: color var(--transition);
+}
+
+/* Series category tag */
+.beybey-gallery .card-tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 11px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+  transition: all var(--transition);
+}
+
+/* Color variants for series tags */
+.beybey-gallery .tag-cyan   { background: #00e5ff14; color: var(--cyan);   border: 1px solid #00e5ff33; }
+.beybey-gallery .tag-red    { background: #ff174414; color: var(--red);    border: 1px solid #ff174433; }
+.beybey-gallery .tag-gold   { background: #ffd74014; color: var(--gold);   border: 1px solid #ffd74033; }
+.beybey-gallery .tag-purple { background: #b388ff14; color: var(--purple); border: 1px solid #b388ff33; }
+
+/* Card title */
+.beybey-gallery .card-title {
+  font-size: 20px;
+  margin-bottom: 6px;
+  transition: color var(--transition);
+}
+
+/* Card description text */
+.beybey-gallery .card-text {
+  font-size: 12px;
+  line-height: 1.65;
+  transition: color var(--transition);
+}
+
+/* ---- CARD HOVER STATE — everything turns cyan ---- */
+.beybey-gallery .card:hover .card-title,
+.beybey-gallery .card:hover .card-text,
+.beybey-gallery .card:hover .episode-tag {
+  color: var(--cyan);
+}
+.beybey-gallery .card:hover .card-tag {
+  background: #00e5ff14;
+  color: var(--cyan);
+  border-color: #00e5ff33;
+}
+
+/* ======================== ENTRANCE ANIMATIONS ======================== */
+
+.beybey-gallery .fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: beybey_fadeUp 0.6s ease forwards;
+}
+@keyframes beybey_fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.beybey-gallery .fade-up:nth-child(1) { animation-delay: 0.05s; }
+.beybey-gallery .fade-up:nth-child(2) { animation-delay: 0.10s; }
+.beybey-gallery .fade-up:nth-child(3) { animation-delay: 0.15s; }
+.beybey-gallery .fade-up:nth-child(4) { animation-delay: 0.20s; }
+.beybey-gallery .fade-up:nth-child(5) { animation-delay: 0.25s; }
+.beybey-gallery .fade-up:nth-child(6) { animation-delay: 0.30s; }
+.beybey-gallery .fade-up:nth-child(7) { animation-delay: 0.35s; }
+.beybey-gallery .fade-up:nth-child(8) { animation-delay: 0.40s; }
+
+/* ======================== RESPONSIVE BREAKPOINTS ======================== */
+
+@media (max-width: 1200px) {
+  .beybey-gallery .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .beybey-gallery .container { padding: 0 32px; }
+}
+
+@media (max-width: 800px) {
+  .beybey-gallery .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .beybey-gallery .gallery-grid { grid-template-columns: 1fr; }
+  .beybey-gallery .hero { padding: 96px 0 32px; }
+  .beybey-gallery .container { padding: 0 20px; }
+}
+/* ================================================
+   Override: gallery-scoped nav styles are replaced
+   by nav.css globals. The .beybey-gallery .nav-wrapper
+   block below resets any conflicts.
+   ================================================ */
+.beybey-gallery .nav-wrapper {
+  position: fixed;
+  top: 16px;
+  background: transparent;
+}

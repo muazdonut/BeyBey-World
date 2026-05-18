@@ -1,0 +1,133 @@
+/* ==========================================================================
+   BEYBEY WORLD — News Styles
+   Nav styles are now handled by nav.css.
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../background.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: #eef0f6;
+  overflow-y: scroll;
+}
+
+html { scroll-behavior: smooth; }
+
+/* Accent colour for page hero */
+.accent { color: #00e5ff; }
+
+/* Push content below the fixed floating nav */
+.page-hero {
+  padding-top: 96px;
+}
+
+/* ==========================================================================
+   NEWS GRID
+   ========================================================================== */
+.news-container {
+  width: 90%;
+  margin: 0 auto 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.news-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px rgba(0, 195, 255, 0.35);
+}
+
+.news-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 25px #00c3ff;
+}
+
+.news-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.news-content {
+  padding: 14px 16px;
+}
+
+.news-content h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+  line-height: 1.3;
+  color: #eef0f6;
+}
+
+.news-content p {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(238, 240, 246, 0.55);
+  line-height: 1.6;
+}
+
+.time {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: rgba(238, 240, 246, 0.4);
+  letter-spacing: 1px;
+  margin-top: 8px;
+  display: block;
+}
+
+/* ==========================================================================
+   DETAIL PAGE
+   ========================================================================== */
+.detail-container {
+  width: 80%;
+  margin: 50px auto;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.detail-image {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 28px;
+}
+
+.detail-content h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+  color: #00e5ff;
+}
+
+.detail-content p {
+  font-family: 'DM Mono', monospace;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(238, 240, 246, 0.8);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .news-container { width: 95%; gap: 24px; }
+}

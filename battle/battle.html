@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEYBEY WORLD — Battle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="battle.css">
+  <link rel="stylesheet" href="../nav.css">
+</head>
+<body>
+
+  <!-- Fixed floating nav -->
+  <div class="nav-wrapper">
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li><a href="../home.html">Home</a></li>
+        <li><a href="../news/news.html">News</a></li>
+        <li><a href="../gallery/gallery.html">Gallery</a></li>
+        <li><a href="../custom/custom.html">Custom</a></li>
+        <li><a href="battle.html" class="active">Battle</a></li>
+        <li><a href="../series/series.html">Series</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Page hero header -->
+  <div class="page-hero battle-hero">
+    <h1><span class="accent">Battle</span></h1>
+    <p>Pick your Beyblade and challenge a rival — let it rip!</p>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <div class="battle-container">
+
+    <!-- LEFT SIDE — CUSTOM BEY -->
+    <div class="side">
+      <div class="custom-label">YOUR CUSTOM BEY</div>
+      <select id="select1"></select>
+      <a class="go-custom-btn" href="../custom/custom.html">✏️ Edit in Customiser</a>
+      <div class="stats-box">
+        <div class="stats-title">STATS</div>
+        <div class="stat">
+          <div class="stat-top"><span>ATK</span><span id="atk1-val"></span></div>
+          <div class="bar" id="atk1-bar"></div>
+        </div>
+        <div class="stat">
+          <div class="stat-top"><span>DEF</span><span id="def1-val"></span></div>
+          <div class="bar" id="def1-bar"></div>
+        </div>
+        <div class="stat">
+          <div class="stat-top"><span>STM</span><span id="stm1-val"></span></div>
+          <div class="bar" id="stm1-bar"></div>
+        </div>
+        <div class="stat">
+          <div class="stat-top"><span>RATE</span></div>
+          <div class="stars" id="stars1"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER BATTLE AREA -->
+    <div class="battle-area">
+      <div class="bey-section"><img id="bey1" class="bey"></div>
+      <div class="vs">
+        <h1>VS</h1>
+        <button id="battleBtn">BATTLE!</button>
+      </div>
+      <div class="bey-section"><img id="bey2" class="bey"></div>
+    </div>
+
+    <!-- RIGHT SIDE — OPPONENT BEY -->
+    <div class="side">
+      <select id="select2"></select>
+      <div class="stats-box">
+        <div class="stats-title">STATS</div>
+        <div class="stat">
+          <div class="stat-top"><span>ATK</span><span id="atk2-val"></span></div>
+          <div class="bar" id="atk2-bar"></div>
+        </div>
+        <div class="stat">
+          <div class="stat-top"><span>DEF</span><span id="def2-val"></span></div>
+          <div class="bar" id="def2-bar"></div>
+        </div>
+        <div class="stat">
+          <div class="stat-top"><span>STM</span><span id="stm2-val"></span></div>
+          <div class="bar" id="stm2-bar"></div>
+        </div>
+        <div class="stat">
+          <div class="stat-top"><span>RATE</span></div>
+          <div class="stars" id="stars2"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BATTLE ANIMATION OVERLAY -->
+  <div id="battle-overlay">
+    <div id="phase-battle">
+      <div class="arena-bg"></div>
+      <div class="clash-sparks" id="clash-sparks"></div>
+      <div class="battle-beys-wrap">
+        <img id="anim-bey1" class="anim-bey bey-left">
+        <img id="anim-bey2" class="anim-bey bey-right">
+      </div>
+      <div class="clash-flash" id="clash-flash"></div>
+      <div class="battle-countdown" id="battle-countdown">3</div>
+    </div>
+
+    <!-- CLASH VIDEO PHASE -->
+    <div id="phase-video">
+      <video id="clash-video" playsinline>
+        <source src="clash.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div id="phase-winner">
+      <div class="winner-bg"></div>
+      <div class="winner-content">
+        <div class="winner-label" id="winner-label">WINNER</div>
+        <img id="winner-bey-img" class="winner-bey-img">
+        <div class="winner-name" id="winner-name"></div>
+        <div class="tap-continue">tap anywhere to continue</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="battle.js"></script>
+  <script src="../nav.js"></script>
+</body>
+</html>

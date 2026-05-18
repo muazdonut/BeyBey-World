@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "title": "Episode 1",
+    "category": "Beyblade Burst",
+    "videoId": "sqHpc_A0cdE",
+    "cardImage": "../character/burst.png",
+    "hoverCardImage": "../character/valt.png"
+  },
+  {
+    "id": "2",
+    "title": "Episode 2",
+    "category": "Beyblade Burst",
+    "videoId": "5SxNU6IiJoY",
+    "cardImage": "../character/burst.png",
+    "hoverCardImage": "../character/valt.png"
+  },
+  {
+    "id": "3",
+    "title": "Episode 3",
+    "category": "Beyblade Burst",
+    "videoId": "H7FqiqDEIU0",
+    "cardImage": "../character/burst.png",
+    "hoverCardImage": "../character/valt.png"
+  },
+  {
+    "id": "4",
+    "title": "Episode 4",
+    "category": "Beyblade Burst",
+    "videoId": "LONhiLebYLQ",
+    "cardImage": "../character/burst.png",
+    "hoverCardImage": "../character/valt.png"
+  },
+  {
+    "id": "5",
+    "title": "Episode 5",
+    "category": "Beyblade Burst",
+    "videoId": "b7hLdDu43U0",
+    "cardImage": "../character/burst.png",
+    "hoverCardImage": "../character/valt.png"
+  },
+  {
+    "id": "6",
+    "title": "Episode 1",
+    "category": "Beyblade 2001",
+    "videoId": "19qpqjebafg",
+    "cardImage": "../character/2001.png",
+    "hoverCardImage": "../character/Tyson.png"
+  },
+  {
+    "id": "7",
+    "title": "Episode 1",
+    "category": "Beyblade Metal Fusion",
+    "videoId": "TyuQw33kqcU",
+    "cardImage": "../character/metalFusion.png",
+    "hoverCardImage": "../character/Ginka.png"
+  },
+  {
+    "id": "8",
+    "title": "Episode 1",
+    "category": "Beyblade X",
+    "videoId": "r1a2QaKmaVo",
+    "cardImage": "../character/x.png",
+    "hoverCardImage": "../character/Kurosu.png"
+  },
+  {
+    "id": "9",
+    "title": "Episode 2",
+    "category": "Beyblade X",
+    "videoId": "qqFSPloFtl4",
+    "cardImage": "../character/x.png",
+    "hoverCardImage": "../character/Kurosu.png"
+  }
+]

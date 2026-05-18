@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEYBEY WORLD — Customiser</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="custom.css">
+  <link rel="stylesheet" href="../nav.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Fixed floating nav -->
+  <div class="nav-wrapper">
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li><a href="../home.html">Home</a></li>
+        <li><a href="../news/news.html">News</a></li>
+        <li><a href="../gallery/gallery.html">Gallery</a></li>
+        <li><a href="custom.html" class="active">Custom</a></li>
+        <li><a href="../battle/battle.html">Battle</a></li>
+        <li><a href="../series/series.html">Series</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- SAVES MODAL -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span class="modal-title">MY SAVED COMBOS</span>
+        <button class="modal-close-btn" onclick="toggleModal(event)">✕</button>
+      </div>
+      <div class="modal-grid" id="modal-grid"></div>
+    </div>
+  </div>
+
+  <!-- NAME INPUT MODAL -->
+  <div class="modal-overlay" id="name-modal" onclick="closeNameModal(event)">
+    <div class="modal-box" style="max-width:420px;">
+      <div class="modal-header">
+        <span class="modal-title">NAME YOUR BEYBLADE</span>
+        <button class="modal-close-btn" onclick="closeNameModalBtn()">✕</button>
+      </div>
+      <div style="padding:28px 24px; display:flex; flex-direction:column; gap:16px;">
+        <input
+          type="text"
+          id="bey-name-input"
+          placeholder="e.g. Dragon Storm"
+          maxlength="30"
+          style="background:rgba(255,255,255,.07); border:1px solid #925dff; color:white;
+                 font-family:'DM Mono',monospace; font-size:14px; letter-spacing:2px;
+                 padding:12px 16px; outline:none; border-radius:8px; width:100%; box-sizing:border-box;"
+        >
+        <button
+          onclick="confirmSave()"
+          style="height:52px; border:none; background:linear-gradient(135deg,#925dff,#ff2d6d);
+                 color:white; font-family:'DM Mono',monospace; font-size:15px; letter-spacing:2px;
+                 cursor:pointer; border-radius:8px; transition:.2s;"
+        >SAVE ✓</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page hero -->
+  <div class="page-hero custom-hero">
+    <h1><span class="accent">Customiser</span></h1>
+    <p>Build and save your ultimate Beyblade combination</p>
+  </div>
+
+  <div class="main">
+
+    <!-- LEFT -->
+    <div class="left-panel">
+      <div class="part-box">
+        <div>
+          <div class="part-title">LAYER</div>
+          <div class="part-sub" id="layer-name-text">Layer 1</div>
+        </div>
+      </div>
+      <div class="part-box">
+        <div>
+          <div class="part-title">DISC</div>
+          <div class="part-sub" id="disc-name-text">Disc 1</div>
+        </div>
+      </div>
+      <div class="part-box">
+        <div>
+          <div class="part-title">DRIVER</div>
+          <div class="part-sub" id="driver-name-text">Driver 1</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER -->
+    <div class="center">
+      <div class="part-row">
+        <button class="arrow-btn" onclick="changeLayer(-1)">◀</button>
+        <div class="part-display"><img id="layer-img"></div>
+        <button class="arrow-btn" onclick="changeLayer(1)">▶</button>
+      </div>
+      <div class="part-row">
+        <button class="arrow-btn" onclick="changeDisc(-1)">◀</button>
+        <div class="part-display"><img id="disc-img"></div>
+        <button class="arrow-btn" onclick="changeDisc(1)">▶</button>
+      </div>
+      <div class="part-row">
+        <button class="arrow-btn" onclick="changeDriver(-1)">◀</button>
+        <div class="part-display small"><img id="driver-img"></div>
+        <button class="arrow-btn" onclick="changeDriver(1)">▶</button>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right-panel">
+      <div class="stats-box">
+        <div class="stats-title">STATS</div>
+        <div class="stat">
+          <div class="stat-top"><span>ATK</span><span id="atk-val"></span></div>
+          <div class="bar" id="atk-bar"></div>
+        </div>
+        <div class="stat">
+          <div class="stat-top"><span>DEF</span><span id="def-val"></span></div>
+          <div class="bar" id="def-bar"></div>
+        </div>
+        <div class="stat">
+          <div class="stat-top"><span>STM</span><span id="stm-val"></span></div>
+          <div class="bar" id="stm-bar"></div>
+        </div>
+        <div class="stat">
+          <div class="stat-top"><span>RATE</span></div>
+          <div class="stars" id="stars"></div>
+        </div>
+      </div>
+      <button class="saves-open-btn" onclick="toggleModal(event)">
+        MY SAVES <span class="nav-saves-badge" id="nav-saves-badge"></span>
+      </button>
+      <button class="battle-btn" id="saveBtn">SAVE BEYBLADE</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="custom.js"></script>
+<script src="../nav.js"></script>
+</body>
+</html>

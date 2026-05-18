@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEYBEY WORLD — News</title>
+  <link rel="stylesheet" href="news.css">
+  <link rel="stylesheet" href="../nav.css">
+</head>
+<body>
+
+  <!-- Fixed floating nav -->
+  <div class="nav-wrapper">
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li><a href="../home.html">Home</a></li>
+        <li><a href="news.html" class="active">News</a></li>
+        <li><a href="../gallery/gallery.html">Gallery</a></li>
+        <li><a href="../custom/custom.html">Custom</a></li>
+        <li><a href="../battle/battle.html">Battle</a></li>
+        <li><a href="../series/series.html">Series</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Page hero header -->
+  <div class="page-hero">
+    <h1><span class="accent">News</span></h1>
+    <p>Latest updates from the Beyblade universe</p>
+  </div>
+
+  <!-- News grid — populated by news.js -->
+  <section class="news-container" id="news-container"></section>
+
+  <script src="news.js"></script>
+  <script src="../nav.js"></script>
+</body>
+</html>

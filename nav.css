@@ -1,0 +1,168 @@
+/* ================================================
+   BEYBEY WORLD — Shared Navigation + Font Tokens
+   Import this on every page AFTER your page CSS.
+   ================================================ */
+
+/* ---- Google Fonts (Bebas Neue + DM Mono) ---- */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&display=swap');
+
+/* ---- Font reset: every page uses DM Mono body + Bebas Neue headings ---- */
+body {
+  font-family: 'DM Mono', monospace;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  letter-spacing: 4px;
+  line-height: 1.1;
+}
+
+/* ================================================
+   NAV WRAPPER
+   - Starts fixed at top: 0 (always visible, no slide-in delay)
+   - Floats as a centred pill 16px from the top
+   - On homepage it's just sticky (no fixed needed — handled per page)
+   ================================================ */
+.nav-wrapper {
+  position: fixed;
+  top: 16px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+  pointer-events: none; /* lets clicks pass through the transparent gap around the pill */
+}
+
+.navbar {
+  pointer-events: all;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 60, 180, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  max-width: 720px;
+  width: calc(100% - 48px);
+  height: 52px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.nav-menu,
+.nav-links {
+  display: flex;
+  list-style: none;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+}
+
+/* ---- Nav links ---- */
+.nav-menu a,
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 100px;
+  border: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Hover: slight dim/highlight instead of underline */
+.nav-menu a:hover,
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+/* Active: no underline, just a subtle background pill */
+.nav-menu a.active,
+.nav-links a.active {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  border-bottom: none !important; /* override any page-level underline */
+}
+
+/* Remove any leftover underline styles from old pages */
+.nav-menu a.active,
+.nav-links a.active::after {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+/* Remove the pseudo-element underline from news.css */
+.nav-links a.active::after {
+  display: none;
+}
+
+/* ================================================
+   PAGE HERO HEADER  (used on all pages except home)
+   Add <section class="page-hero"> at the top of each page body.
+   ================================================ */
+.page-hero {
+  padding: 72px 48px 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px;
+  letter-spacing: 6px;
+  line-height: 1;
+  margin-bottom: 10px;
+  color: #eef0f6;
+}
+
+.page-hero h1 .accent {
+  color: #00e5ff;
+}
+
+.page-hero p {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(238, 240, 246, 0.55);
+  letter-spacing: 1px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 640px) {
+  .navbar {
+    height: 44px;
+    width: calc(100% - 24px);
+  }
+
+  .nav-menu a,
+  .nav-links a {
+    font-size: 11px;
+    padding: 4px 8px;
+    letter-spacing: 1px;
+  }
+
+  .page-hero {
+    padding: 90px 20px 32px;
+  }
+
+  .page-hero h1 {
+    font-size: 44px;
+  }
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEYBEY WORLD — Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Bebas+Neue&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="../nav.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #080808;
+      font-family: 'DM Mono', monospace;
+      font-weight: 300;
+      color: #eef0f6;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: 'Bebas Neue', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+      font-size: 80px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: #8a90a0;
+    }
+
+    a {
+      color: #003CB4;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Video Background */
+    .page-video-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .page-video-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: black;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .page-video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+
+
+    /* Hero */
+    .hero {
+      padding-top: 140px;
+      padding-bottom: 80px;
+      text-align: center;
+      min-height: 1200px;
+    }
+
+    .page-header {
+      text-align: center;
+      padding: 8px 0 0;
+      color: #ffffff;
+      font-size: 50px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .hero-branding {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 0px;
+    }
+
+    .page-logo {
+      display: block;
+      max-width: 1000px;
+      width: 100%;
+      height: auto;
+      margin: 100px auto 0;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(38, 114, 255, 0.5);
+      padding: 8px 28px;
+      border-radius: 100px;
+      background: rgba(0, 0, 0, 0.4);
+      margin-bottom: 400px;
+    }
+
+    .hero h1 {
+      color: #eef0f6;
+      margin-bottom: 16px;
+    }
+
+    .accent { color: #00e5ff; }
+
+    .hero p {
+      color: white;
+      max-width: 540px;
+      margin: 0 auto 40px;
+      font-size: 20px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 200px;
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 110px;
+        padding-bottom: 50px;
+      }
+      .nav-menu a {
+        font-size: 10px;
+        letter-spacing: 2px;
+      }
+      h1 { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="page-header">BEYBEY WORLD</header>
+
+  <!-- Navigation: home.html style (dark glass pill, DM Mono font, slides in on scroll) -->
+  <div class="nav-wrapper" id="navWrapper">
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li><a href="home.html" class="active">Home</a></li>
+        <li><a href="news/news.html">News</a></li>
+        <li><a href="gallery/gallery.html">Gallery</a></li>
+        <li><a href="custom/custom.html">Custom</a></li>
+        <li><a href="battle/battle.html">Battle</a></li>
+        <li><a href="series/series.html">Series</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Video Background -->
+  <div class="page-video-bg">
+    <video autoplay muted loop playsinline class="page-video">
+      <source src="home_bg.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-branding">
+        <img class="page-logo" src="beyblade logo.png" alt="Beyblade logo">
+        <span class="hero-badge">OG &bull; Metal &bull; Burst &bull; X</span>
+      </div>
+      <h1>Your All-In-One<br><span class="accent">Beyblade</span> Universe</h1>
+      <p>Stay updated, customize your builds, and relive the franchise from the very start.</p>
+    </div>
+  </section>
+
+  <script>
+    const wrapper = document.getElementById('navWrapper');
+    const links = document.querySelectorAll('.nav-menu a');
+
+    window.addEventListener('scroll', function () {
+      wrapper.classList.toggle('visible', window.scrollY > 80);
+    });
+
+    links.forEach(function (link) {
+      link.addEventListener('click', function () {
+        links.forEach(function (l) { l.classList.remove('active'); });
+        this.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
